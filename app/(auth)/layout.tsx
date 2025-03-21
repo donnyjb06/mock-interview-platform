@@ -3,7 +3,7 @@ import { LayoutProps } from '../_utils/LayoutProps'
 
 const AuthLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>{children}</div>
+    <div className='auth-layout'>{children}</div>
   )
 }
 
