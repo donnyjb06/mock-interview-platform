@@ -1,9 +1,20 @@
 import React from 'react'
 import { LayoutProps } from '../_utils/LayoutProps'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const RootLayout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>{children}</div>
+    <div className='root-layout'>
+      <nav>
+        <Link href="/" className='flex items-center gap-2'>
+          <Image src="/logo.svg" alt='Logo' width={38} height={32}/>
+          <h2 className='text-primary-100'>Prepwise</h2>
+        </Link>
+      </nav>
+
+      {children}
+    </div>
   )
 }
 
