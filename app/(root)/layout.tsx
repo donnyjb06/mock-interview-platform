@@ -2,8 +2,16 @@ import React from 'react'
 import { LayoutProps } from '../_utils/LayoutProps'
 import Link from 'next/link'
 import Image from 'next/image'
+import { isAuthenticated } from '@/lib/actions/auth.action'
+import { redirect } from 'next/navigation'
 
-const RootLayout: React.FC<LayoutProps> = ({ children }) => {
+const RootLayout: React.FC<LayoutProps> = async ({ children }) => {
+  const isUserAuthenticated = await isAuthenticated();
+
+  if (!isUserAuthenticated) {
+    redirect("/sign-in")
+  }
+
   return (
     <div className='root-layout'>
       <nav>
